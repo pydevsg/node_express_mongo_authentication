@@ -14,7 +14,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.json());
 
 //Route Middlewares
-app.use('/api/user',authRoute); // localhost:3000/api/user/route
+app.use('/api/user',authRoute); // localhost:5000/api/user/route
 
 mongoose.connect(process.env.DB_CONNECT).then(()=>{
     console.log('Database is connected');

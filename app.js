@@ -7,14 +7,16 @@ const dotenv = require('dotenv');
 
 dotenv.config(); // configuring the .env file variables
 // Routes
-const authRoute = require('./routes/auth'); // import route
+const authRoute = require('./routes/auth'); // auth route
+const postRoute = require('./routes/proxyroute'); // proxypost route
 const User = require('./models/User'); // connection with database model
 
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.json());
 
 //Route Middlewares
-app.use('/api/user',authRoute); // localhost:5000/api/user/route
+app.use('/api/user',authRoute); 
+app.use('/api/post',postRoute);
 
 mongoose.connect(process.env.DB_CONNECT).then(()=>{
     console.log('Database is connected');
